@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reservationsSliceReducer from './slices/reservationsSlice';
-import userSliceReducer from './slices/userSlice';
-import videogamesSliceReducer from './slices/videogamesSlice';
+import reservationReducer from './slices/reservationsSlice';
+import userReducer from './slices/userSlice';
+import videogameReducer from './slices/videogamesSlice';
 
 const reducer = {
-  videogames: videogamesSliceReducer,
-  user: userSliceReducer,
-  reservations: reservationsSliceReducer,
+  userReducer,
+  videogameReducer,
+  reservationReducer,
 };
 
 const setupStore = (preloadedState) => configureStore({
@@ -14,18 +14,20 @@ const setupStore = (preloadedState) => configureStore({
   reducer,
 });
 
-export const selectJWT = (state) => state.user.jwt;
-export const selectUser = (state) => state.user.user;
-export const selectUserLoginLoading = (state) => state.user.loginLoading;
-export const selectUserLoginError = (state) => state.user.loginError;
-export const selectUserLogoutError = (state) => state.user.logoutError;
-export const selectVideogames = (state) => state.videogames.all;
-export const selectVideogamesError = (state) => state.videogames.allError;
-export const selectVideogameDetails = (state) => state.videogames.details;
-export const selectVideogameDetailsError = (state) => state.videogames.detailsError;
-export const selectVideogameDeleteMessage = (state) => state.videogames.deleteMessage;
-export const selectVideogameDeleteError = (state) => state.videogames.deleteError;
-export const selectReservations = (state) => state.reservations.reservations;
-export const selectReservationsError = (state) => state.reservations.error;
+export const selectJWT = (state) => state.userReducer.jwt;
+export const selectUser = (state) => state.userReducer.user;
+export const selectSignUpLoading = (state) => state.userReducer.signUpLoading;
+export const selectSignUpError = (state) => state.userReducer.signUpError;
+export const selectLoginLoading = (state) => state.userReducer.loginLoading;
+export const selectLoginError = (state) => state.userReducer.loginError;
+export const selectLogoutError = (state) => state.userReducer.logoutError;
+export const selectVideogames = (state) => state.videogameReducer.all;
+export const selectVideogamesError = (state) => state.videogameReducer.allError;
+export const selectVideogameDetails = (state) => state.videogameReducer.details;
+export const selectVideogameDetailsError = (state) => state.videogameReducer.detailsError;
+export const selectVideogameDeleteMessage = (state) => state.videogameReducer.deleteMessage;
+export const selectVideogameDeleteError = (state) => state.videogameReducer.deleteError;
+export const selectReservations = (state) => state.reservationReducer.reservations;
+export const selectReservationsError = (state) => state.reservationReducer.error;
 
 export default setupStore;

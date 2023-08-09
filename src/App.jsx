@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Navigation from './components/navigation';
+import Navigation from './components/Navigation';
 import ProtectedRoute from './components/ProtectedRoute';
-import { setLocalStorageUserData } from './redux/slices/userSlice';
+import { setUserDataFromLocalStorage } from './redux/slices/userSlice';
 import { clearDetails } from './redux/slices/videogamesSlice';
 import { selectUser } from './redux/store';
 import AddVideogame from './routes/AddVideogame';
@@ -14,7 +14,7 @@ import Login from './routes/Login';
 import MyReservations from './routes/MyReservations';
 import NotFound from './routes/NotFound';
 import Reserve from './routes/Reserve';
-import SignIn from './routes/Signin';
+import SignUp from './routes/SignUp';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const App = () => {
     if (!location.pathname.startsWith('/details/')) {
       dispatch(clearDetails());
     }
-    dispatch(setLocalStorageUserData());
+    dispatch(setUserDataFromLocalStorage());
   }, [dispatch, location.pathname]);
 
   if (user === undefined) {
@@ -34,14 +34,14 @@ const App = () => {
 
   return (
     <>
-      {location.pathname !== '/login' && location.pathname !== '/signin' && <Navigation />}
+      {location.pathname !== '/login' && location.pathname !== '/signup' && <Navigation />}
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/details/:id" element={<Details />} />
           <Route element={<ProtectedRoute isAllowed={!user} />}>
             <Route path="/login" element={<Login />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
           </Route>
           <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
             <Route path="/reserve" element={<Reserve />} />

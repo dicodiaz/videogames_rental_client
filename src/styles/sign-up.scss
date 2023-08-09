@@ -1,4 +1,10 @@
-.signin-main-container {
+.bg-form {
+  background-image: url('../assets/green_background.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.sign-up-main-container {
   background-image: url('../assets/green_background.png');
   background-position: center;
   background-size: cover;
@@ -11,7 +17,7 @@
   position: relative;
 }
 
-.signin-inputs {
+.sign-up-inputs {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,14 +30,14 @@
   justify-content: center;
 }
 
-.signin-header {
+.sign-up-header {
   position: absolute;
   top: 40px;
   left: 60px;
 }
 
 @media (min-width: 768px) {
-  .signin-inputs {
+  .sign-up-inputs {
     flex-direction: row;
     justify-content: center;
   }
