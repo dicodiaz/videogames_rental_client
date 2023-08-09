@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import '../styles/Signin.scss';
+import { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signin } from '../redux/slices/userSlice';
 import { getVideogames } from '../redux/slices/videogamesSlice';
+import '../styles/Signin.scss';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -19,13 +19,15 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signin({
-      name,
-      email,
-      password,
-      passwordConfirmation,
-      address,
-    }));
+    dispatch(
+      signin({
+        name,
+        email,
+        password,
+        passwordConfirmation,
+        address,
+      }),
+    );
   };
   useEffect(() => {
     if (!videogames) {
@@ -41,9 +43,7 @@ const SignIn = () => {
       <div className="line-center">
         <hr className="green-line" />
       </div>
-      <form
-        onSubmit={handleSubmit}
-      >
+      <form onSubmit={handleSubmit}>
         <div className="signin-inputs">
           <input
             value={name}
@@ -84,10 +84,7 @@ const SignIn = () => {
           />
         </div>
         <div className="signin-inputs">
-          <button
-            type="submit"
-            className="login-submit-button"
-          >
+          <button type="submit" className="login-submit-button">
             {signinLoading ? <div className="spinner-border" /> : 'Submit'}
           </button>
         </div>

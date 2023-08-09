@@ -7,10 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "eslint": "npx eslint \"**/*.{js,jsx}\"",
-    "eslint:fix": "npx eslint \"**/*.{js,jsx}\" --fix",
     "stylelint": "npx stylelint \"**/*.{css,scss}\"",
+    "eslint:fix": "npx eslint \"**/*.{js,jsx}\" --fix",
     "stylelint:fix": "npx stylelint \"**/*.{css,scss}\" --fix",
-    "fix": "npx eslint \"**/*.{js,jsx}\" --fix && npx stylelint \"**/*.{css,scss}\" --fix",
+    "lint": "npm run eslint && npm run stylelint",
+    "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage"

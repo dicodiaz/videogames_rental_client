@@ -6,25 +6,6 @@
   <h1><b>Videogames Front end</b></h1>
 </div>
 
-<!--
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
--->
-
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -49,11 +30,12 @@ OPTIONAL SECTIONS:
 
 # 🎮 mc_videgames_front <a id="about-project"></a>
 
-**mc_videgames_front** is the front-end implementation of the final capstone group from Microverse. It is an application that let the user rent a videogame. It also let the admins create new videogames or delete them. 
+**mc_videgames_front** is the front-end implementation of the final capstone group from Microverse. It is an application that let the user rent a videogame. It also let the admins create new videogames or delete them.
 
-**We are a five people team** 
+**We are a five people team**
 
 ## 🛠 Built With <a id="built-with"></a>
+
 - `React`
 - `React-router-dom`
 - `Redux`
@@ -94,7 +76,7 @@ OPTIONAL SECTIONS:
 **We are a five people team**
 
 - Kanban board (initial state)
-<img src="./kanban.png">
+  <img src="./kanban.png">
 
 - [Kanban board Link](https://github.com/users/DavidEspinoG/projects/5/views/1)
 
@@ -113,6 +95,7 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
+
 - Node
 - A web browser
 
@@ -129,7 +112,7 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
- - `npm i `
+- `npm i `
 
 ### Usage
 
@@ -152,6 +135,7 @@ To start the server, execute the following command:
 ## 👥 Authors <a id="authors"></a>
 
 👤 **Alejandra Keber Maggi**
+
 - GitHub: [@AlejandraKeber](https://github.com/AlejandraKeber)
 - Twitter: [@KeberAlejandra](https://twitter.com/KeberAlejandra)
 - LinkedIn: [alejandra-keber](https://www.linkedin.com/in/alejandra-keber)
@@ -172,14 +156,13 @@ To start the server, execute the following command:
 
 - Github: [GitHub](https://github.com/sanieni6/)
 - Twitter: [Twitter](https://twitter.com/its_luis_sz23)
-- Linkedin:  [LinkedIn](https://www.linkedin.com/in/luissanchezz3/)
+- Linkedin: [LinkedIn](https://www.linkedin.com/in/luissanchezz3/)
 
 👤 **Nicolas Olaya**
 
 - GitHub: [@NicolasAndrehh](https://github.com/NicolasAndrehh)
 - Twitter: [@nicolasolaya22](https://twitter.com/nicolasolaya22)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/nicolas-olaya/)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -213,7 +196,8 @@ If you like this project please give it a star ⭐️
 
 ## 🙏 Acknowledgments <a id="acknowledgements"></a>
 
-I would like to thank 
+I would like to thank
+
 - [Microverse](https://www.microverse.org/) for the opportunity.
 - Code Reviewers
 - Coding Partners
@@ -228,5 +212,3 @@ I would like to thank
 This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-

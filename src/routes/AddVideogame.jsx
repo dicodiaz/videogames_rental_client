@@ -15,16 +15,33 @@ const AddVideogame = () => {
 
   const inputs = [
     {
-      id: 0, placeholder: 'Name', type: 'text', value: name, action: setName,
+      id: 0,
+      placeholder: 'Name',
+      type: 'text',
+      value: name,
+      action: setName,
     },
     {
-      id: 1, placeholder: 'Image URL', type: 'text', value: url, action: setUrl,
+      id: 1,
+      placeholder: 'Image URL',
+      type: 'text',
+      value: url,
+      action: setUrl,
     },
     {
-      id: 2, placeholder: 'Description', type: 'text', value: description, action: setDescription,
+      id: 2,
+      placeholder: 'Description',
+      type: 'text',
+      value: description,
+      action: setDescription,
     },
     {
-      id: 3, placeholder: 'Price per day', type: 'number', value: price, action: setPrice, min: 0,
+      id: 3,
+      placeholder: 'Price per day',
+      type: 'number',
+      value: price,
+      action: setPrice,
+      min: 0,
     },
   ];
 
