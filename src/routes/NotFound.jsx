@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/NotFound.scss';
+import '../styles/not-found.scss';
 
 const NotFound = () => {
   const navigate = useNavigate();
