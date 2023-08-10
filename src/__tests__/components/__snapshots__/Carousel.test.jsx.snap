@@ -37,82 +37,7 @@ exports[`Carousel > should render as expected if items are reservations 1`] = `
         class="col"
       >
         <a
-          href="/details/68"
-        >
-          <div
-            class="vh-25 mb-4"
-          >
-            <img
-              alt="Street Fighter"
-              class="h-100 img-fluid rounded aspect-ratio-1"
-              src="https://mms.businesswire.com/media/20230122005013/en/1692292/5/p1-1.jpg"
-            />
-          </div>
-          <h3
-            class="h6 fw-bolder text-uppercase mb-4"
-          >
-            Street Fighter
-          </h3>
-        </a>
-        <div
-          class="text-muted small"
-        >
-          <p
-            class="mb-0"
-          >
-            <span
-              class="fw-bold"
-            >
-              Starting date:
-            </span>
-             
-            Thursday, July 20, 2023
-          </p>
-          <p
-            class="mb-0"
-          >
-            <span
-              class="fw-bold"
-            >
-              Finishing date:
-            </span>
-             
-            Monday, July 31, 2023
-          </p>
-          <p
-            class="mb-0"
-          >
-            <span
-              class="fw-bold"
-            >
-              Days:
-            </span>
-             
-            11
-          </p>
-          <p
-            class="mb-0"
-          >
-            <span
-              class="fw-bold"
-            >
-              Total price:
-            </span>
-             
-            $220
-          </p>
-          <p
-            class="d-webkit-box clamp-3"
-          >
-            Street Fighter is a 1987 arcade game developed by Capcom. It is the first competitive fighting game produced by the company and the inaugural game in the Street Fighter series.
-          </p>
-        </div>
-      </article>
-      <article
-        class="col"
-      >
-        <a
-          href="/details/62"
+          href="/videogames/31"
         >
           <div
             class="vh-25 mb-4"
@@ -141,7 +66,7 @@ exports[`Carousel > should render as expected if items are reservations 1`] = `
               Starting date:
             </span>
              
-            Thursday, July 20, 2023
+            Thursday, August 10, 2023
           </p>
           <p
             class="mb-0"
@@ -152,7 +77,7 @@ exports[`Carousel > should render as expected if items are reservations 1`] = `
               Finishing date:
             </span>
              
-            Saturday, July 22, 2023
+            Saturday, August 12, 2023
           </p>
           <p
             class="mb-0"
@@ -180,6 +105,81 @@ exports[`Carousel > should render as expected if items are reservations 1`] = `
             class="d-webkit-box clamp-3"
           >
             Tetris is a puzzle video game created in 1984 by Alexey Pajitnov, a Soviet software engineer.
+          </p>
+        </div>
+      </article>
+      <article
+        class="col"
+      >
+        <a
+          href="/videogames/30"
+        >
+          <div
+            class="vh-25 mb-4"
+          >
+            <img
+              alt="Super Mario Bros"
+              class="h-100 img-fluid rounded aspect-ratio-1"
+              src="https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png"
+            />
+          </div>
+          <h3
+            class="h6 fw-bolder text-uppercase mb-4"
+          >
+            Super Mario Bros
+          </h3>
+        </a>
+        <div
+          class="text-muted small"
+        >
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Starting date:
+            </span>
+             
+            Thursday, August 10, 2023
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Finishing date:
+            </span>
+             
+            Sunday, August 13, 2023
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Days:
+            </span>
+             
+            3
+          </p>
+          <p
+            class="mb-0"
+          >
+            <span
+              class="fw-bold"
+            >
+              Total price:
+            </span>
+             
+            $30
+          </p>
+          <p
+            class="d-webkit-box clamp-3"
+          >
+            Super Mario Bros is a platform game developed and published by Nintendo. The successor to the 1983 arcade game Mario Bros. and the first game in the Super Mario series, it was first released in 1985 for the Famicom in Japan.
           </p>
         </div>
       </article>
@@ -249,7 +249,7 @@ exports[`Carousel > should render as expected if items are videogames 1`] = `
         class="col h-100 d-flex flex-column"
       >
         <a
-          href="/details/95"
+          href="/videogames/37"
         >
           <div
             class="vh-25 mb-4"
@@ -290,7 +290,7 @@ exports[`Carousel > should render as expected if items are videogames 1`] = `
         class="col h-100 d-flex flex-column"
       >
         <a
-          href="/details/94"
+          href="/videogames/36"
         >
           <div
             class="vh-25 mb-4"

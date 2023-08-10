@@ -22,9 +22,11 @@ exports[`AddVideogame > should render as expected 1`] = `
         <p>
           Add a videogame available for rent
         </p>
-        <form>
+        <form
+          class="row row-cols-1 row-cols-md-auto justify-content-center gy-2"
+        >
           <div
-            class="login-inputs"
+            class="col d-flex justify-content-center"
           >
             <input
               class="input"
@@ -33,6 +35,10 @@ exports[`AddVideogame > should render as expected 1`] = `
               type="text"
               value=""
             />
+          </div>
+          <div
+            class="col d-flex justify-content-center"
+          >
             <input
               class="input"
               placeholder="Image URL"
@@ -40,6 +46,10 @@ exports[`AddVideogame > should render as expected 1`] = `
               type="text"
               value=""
             />
+          </div>
+          <div
+            class="col d-flex justify-content-center"
+          >
             <input
               class="input"
               placeholder="Description"
@@ -47,6 +57,10 @@ exports[`AddVideogame > should render as expected 1`] = `
               type="text"
               value=""
             />
+          </div>
+          <div
+            class="col d-flex justify-content-center"
+          >
             <input
               class="input"
               min="0"
@@ -57,7 +71,7 @@ exports[`AddVideogame > should render as expected 1`] = `
             />
           </div>
           <div
-            class="button-container"
+            class="col d-flex justify-content-center"
           >
             <button
               class="login-submit-button"

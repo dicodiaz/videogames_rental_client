@@ -22,9 +22,11 @@ exports[`Reserve > should render as expected 1`] = `
         <p>
           Select the videogame you want to rent and the date you want to return it
         </p>
-        <form>
+        <form
+          class="row row-cols-1 row-cols-md-auto justify-content-center gy-2 mb-2"
+        >
           <div
-            class="login-inputs"
+            class="col d-flex justify-content-center"
           >
             <select
               class="reserve-select"
@@ -36,22 +38,30 @@ exports[`Reserve > should render as expected 1`] = `
                 -- Select a videogame --
               </option>
               <option
-                value="95"
+                value="37"
               >
                 Street Fighter
               </option>
               <option
-                value="94"
+                value="36"
               >
                 Mortal Kombat
               </option>
             </select>
+          </div>
+          <div
+            class="col d-flex justify-content-center"
+          >
             <input
               class="input"
               min="2023-07-27"
               required=""
               type="date"
             />
+          </div>
+          <div
+            class="col d-flex justify-content-center"
+          >
             <button
               class="login-submit-button"
               type="submit"

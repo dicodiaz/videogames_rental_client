@@ -3,18 +3,17 @@
 exports[`Login > should render as expected 1`] = `
 <div>
   <div
-    class="login-main-container"
+    class="bg-form"
   >
     <div
-      class="container"
+      class="container min-vh-100 text-white py-5"
     >
-      <div
-        class="login-header"
-      >
+      <div>
         <svg
-          class="back-icon"
+          class="fs-1"
           fill="currentColor"
           height="1em"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           viewBox="0 0 24 24"
@@ -27,48 +26,66 @@ exports[`Login > should render as expected 1`] = `
         </svg>
       </div>
       <div
-        class="login-form"
+        class="row mx-0 g-0 flex-grow-1 align-items-center"
       >
-        <h3
-          class="subtitle text-center"
+        <div
+          class="col"
         >
-          LOGIN
-        </h3>
-        <hr
-          class="green-line"
-        />
-        <form
-          class="login-inputs"
-        >
-          <input
-            class="input"
-            placeholder="Email"
-            type="text"
-            value=""
-          />
-          <input
-            class="input"
-            placeholder="Password"
-            type="password"
-            value=""
-          />
-          <button
-            class="login-submit-button"
-            type="submit"
+          <h3
+            class="subtitle text-center"
           >
-            Submit
-          </button>
-        </form>
-        <div>
-          <span>
-            Don't have an account? 
-          </span>
-          <a
-            class="underline"
-            href="/signin"
+            LOGIN
+          </h3>
+          <hr
+            class="green-line"
+          />
+          <form
+            class="row row-cols-1 row-cols-md-auto justify-content-center gy-2 mb-2"
           >
-            Create an account
-          </a>
+            <div
+              class="col d-flex justify-content-center"
+            >
+              <input
+                class="input"
+                placeholder="Email"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="col d-flex justify-content-center"
+            >
+              <input
+                class="input"
+                placeholder="Password"
+                type="password"
+                value=""
+              />
+            </div>
+            <div
+              class="col d-flex justify-content-center"
+            >
+              <button
+                class="login-submit-button"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+          <div
+            class="text-center"
+          >
+            <span>
+              Don't have an account? 
+            </span>
+            <a
+              class="underline"
+              href="/signup"
+            >
+              Create an account
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -46,21 +46,21 @@ exports[`MyReservations > should render as expected 1`] = `
           class="col"
         >
           <a
-            href="/details/68"
+            href="/videogames/31"
           >
             <div
               class="vh-25 mb-4"
             >
               <img
-                alt="Street Fighter"
+                alt="Tetris"
                 class="h-100 img-fluid rounded aspect-ratio-1"
-                src="https://mms.businesswire.com/media/20230122005013/en/1692292/5/p1-1.jpg"
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Tetris_NES_cover_art.jpg/220px-Tetris_NES_cover_art.jpg"
               />
             </div>
             <h3
               class="h6 fw-bolder text-uppercase mb-4"
             >
-              Street Fighter
+              Tetris
             </h3>
           </a>
           <div
@@ -75,7 +75,7 @@ exports[`MyReservations > should render as expected 1`] = `
                 Starting date:
               </span>
                
-              Thursday, July 20, 2023
+              Thursday, August 10, 2023
             </p>
             <p
               class="mb-0"
@@ -86,7 +86,7 @@ exports[`MyReservations > should render as expected 1`] = `
                 Finishing date:
               </span>
                
-              Monday, July 31, 2023
+              Saturday, August 12, 2023
             </p>
             <p
               class="mb-0"
@@ -97,7 +97,7 @@ exports[`MyReservations > should render as expected 1`] = `
                 Days:
               </span>
                
-              11
+              2
             </p>
             <p
               class="mb-0"
@@ -108,12 +108,12 @@ exports[`MyReservations > should render as expected 1`] = `
                 Total price:
               </span>
                
-              $220
+              $10
             </p>
             <p
               class="d-webkit-box clamp-3"
             >
-              Street Fighter is a 1987 arcade game developed by Capcom. It is the first competitive fighting game produced by the company and the inaugural game in the Street Fighter series.
+              Tetris is a puzzle video game created in 1984 by Alexey Pajitnov, a Soviet software engineer.
             </p>
           </div>
         </article>

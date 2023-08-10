@@ -51,7 +51,7 @@ exports[`DeleteVideogame > should render as expected 1`] = `
           class="col h-100 d-flex flex-column"
         >
           <a
-            href="/details/95"
+            href="/videogames/37"
           >
             <div
               class="vh-25 mb-4"

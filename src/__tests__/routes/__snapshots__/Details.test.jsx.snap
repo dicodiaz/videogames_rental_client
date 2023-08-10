@@ -63,8 +63,7 @@ exports[`Details > should render as expected 1`] = `
         class="discover-button"
         href="/"
       >
-        Discover more videogames
-         
+        Discover more videogames 
         <span>
           &gt;
         </span>
