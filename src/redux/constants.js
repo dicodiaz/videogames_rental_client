@@ -1,3 +1,3 @@
-const BASE_URL = 'http://www.dicodiaz.live';
+const BASE_URL = 'https://www.dicodiaz.live';
 
 export default BASE_URL;
