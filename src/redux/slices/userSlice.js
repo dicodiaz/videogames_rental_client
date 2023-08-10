@@ -9,7 +9,6 @@ export const signUp = createAsyncThunk(
   }, { rejectWithValue }) => {
     const url = `${BASE_URL}/signup`;
     const data = {
-      headers: { Accept: 'application/json' },
       user: {
         name,
         address,
@@ -17,13 +16,14 @@ export const signUp = createAsyncThunk(
         password,
       },
     };
-    const response = await axios.post(url, data).catch((error) => error);
+    const config = { headers: { Accept: 'application/json' } };
+    const response = await axios.post(url, data, config).catch((error) => error);
 
     if (response.status === 200) {
       return { user: response.data, jwt: response.headers.authorization };
     }
 
-    return rejectWithValue(response.response.data.message);
+    return rejectWithValue(response.response.data.error);
   },
 );
 
@@ -31,28 +31,29 @@ export const login = createAsyncThunk(
   'user/login',
   async ({ email, password }, { rejectWithValue }) => {
     const url = `${BASE_URL}/login`;
-    const data = { headers: { Accept: 'application/json' }, user: { email, password } };
-    const response = await axios.post(url, data).catch((error) => error);
+    const data = { user: { email, password } };
+    const config = { headers: { Accept: 'application/json' } };
+    const response = await axios.post(url, data, config).catch((error) => error);
 
     if (response.status === 200) {
       return { user: response.data, jwt: response.headers.authorization };
     }
 
-    return rejectWithValue(response.response.data.message);
+    return rejectWithValue(response.response.data.error);
   },
 );
 
 export const logout = createAsyncThunk('user/logout', async (_, { getState, rejectWithValue }) => {
   const state = getState();
   const url = `${BASE_URL}/logout`;
-  const headers = { Accept: 'application/json', Authorization: state.userReducer.jwt };
-  const response = await axios.delete(url, { headers }).catch((error) => error);
+  const config = { headers: { Accept: 'application/json', Authorization: state.userReducer.jwt } };
+  const response = await axios.delete(url, config).catch((error) => error);
 
   if (response.status === 200) {
     return response.data;
   }
 
-  return rejectWithValue(response.response.data.message);
+  return rejectWithValue(response.response.data.error);
 });
 
 const userSlice = createSlice({
@@ -76,15 +77,15 @@ const userSlice = createSlice({
       const { user, jwt } = payload;
       state.user = user;
       state.jwt = jwt;
-      state.signUpLoading = false;
       state.signUpError = null;
+      state.signUpLoading = false;
     },
     [signUp.pending]: (state) => {
       state.signUpLoading = true;
     },
     [signUp.rejected]: (state, { payload }) => {
-      state.signUpLoading = false;
       state.signUpError = payload;
+      state.signUpLoading = false;
     },
     [login.fulfilled]: (state, { payload }) => {
       localStorage.setItem('user_data', JSON.stringify(payload));
@@ -108,6 +109,9 @@ const userSlice = createSlice({
       state.logoutError = null;
     },
     [logout.rejected]: (state, { payload }) => {
+      localStorage.removeItem('user_data');
+      state.user = null;
+      state.jwt = null;
       state.logoutError = payload;
     },
   },
