@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Fragment } from 'react';
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 import '../styles/carousel.scss';
 import Reservation from './Reservation';
@@ -31,17 +30,16 @@ const Carousel = ({
       </div>
       <div className="col row mx-0 row-cols-1 row-cols-md-2 row-cols-xl-3">
         {items.map((item) => {
-          const { id } = item;
+          const { id, type, attributes } = item;
 
-          return (
-            <Fragment key={id}>
-              {item?.name ? (
-                <Videogame data={item} deleteButton={deleteButton} />
-              ) : (
-                <Reservation data={item} />
-              )}
-            </Fragment>
-          );
+          switch (type) {
+            case 'videogame':
+              return <Videogame key={id} data={attributes} deleteButton={deleteButton} />;
+            case 'reservation':
+              return <Reservation key={id} data={attributes} />;
+            default:
+              return null;
+          }
         })}
       </div>
       <div className="col-auto d-flex flex-column justify-content-center">
@@ -61,7 +59,11 @@ const Carousel = ({
 
 Carousel.propTypes = {
   items: PropTypes.arrayOf(
-    PropTypes.oneOfType([Reservation.propTypes.data, Videogame.propTypes.data]),
+    PropTypes.shape({
+      id: PropTypes.string,
+      type: PropTypes.string,
+      attributes: PropTypes.oneOfType([Reservation.propTypes.data, Videogame.propTypes.data]),
+    }),
   ).isRequired,
   setPage: PropTypes.func.isRequired,
   disabledLeft: PropTypes.bool.isRequired,

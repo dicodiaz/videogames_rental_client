@@ -9,8 +9,8 @@ describe('Details', () => {
     useParams.mockReturnValue({ id: '1' });
     const { container } = renderWithProviders(<Details />, {
       preloadedState: {
-        videogames: {
-          details: mockVideogame,
+        videogameReducer: {
+          videogame: mockVideogame,
         },
       },
     });

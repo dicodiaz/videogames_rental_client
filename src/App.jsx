@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ProtectedRoute from './components/ProtectedRoute';
 import { setUserDataFromLocalStorage } from './redux/slices/userSlice';
-import { clearDetails } from './redux/slices/videogamesSlice';
+import { clearVideogame } from './redux/slices/videogamesSlice';
 import { selectUser } from './redux/store';
 import AddVideogame from './routes/AddVideogame';
 import DeleteVideogame from './routes/DeleteVideogame';
@@ -22,8 +22,8 @@ const App = () => {
   const user = useSelector(selectUser);
 
   useEffect(() => {
-    if (!location.pathname.startsWith('/details/')) {
-      dispatch(clearDetails());
+    if (!location.pathname.startsWith('/videogames/')) {
+      dispatch(clearVideogame());
     }
     dispatch(setUserDataFromLocalStorage());
   }, [dispatch, location.pathname]);
@@ -38,7 +38,7 @@ const App = () => {
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/details/:id" element={<Details />} />
+          <Route path="/videogames/:id" element={<Details />} />
           <Route element={<ProtectedRoute isAllowed={!user} />}>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />

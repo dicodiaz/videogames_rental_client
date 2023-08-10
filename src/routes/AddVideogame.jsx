@@ -1,17 +1,25 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { createVideogame } from '../redux/slices/videogamesSlice';
-import { selectJWT } from '../redux/store';
-import '../styles/AddVideogame.scss';
+import { useUpdateEffect } from 'usehooks-ts';
+import { addVideogame } from '../redux/slices/videogamesSlice';
+import {
+  selectAddVideogameError,
+  selectAddVideogameLoading,
+  selectVideogame,
+} from '../redux/store';
+import '../styles/add-videogame.scss';
 
 const AddVideogame = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const jwt = useSelector(selectJWT);
+  const videogame = useSelector(selectVideogame);
+  const addVideogameLoading = useSelector(selectAddVideogameLoading);
+  const addVideogameError = useSelector(selectAddVideogameError);
   const [name, setName] = useState('');
-  const [url, setUrl] = useState('');
+  const [photoURL, setPhotoURL] = useState('');
   const [description, setDescription] = useState('');
-  const [price, setPrice] = useState(0);
+  const [pricePerDay, setPricePerDay] = useState(0);
 
   const inputs = [
     {
@@ -25,8 +33,8 @@ const AddVideogame = () => {
       id: 1,
       placeholder: 'Image URL',
       type: 'text',
-      value: url,
-      action: setUrl,
+      value: photoURL,
+      action: setPhotoURL,
     },
     {
       id: 2,
@@ -39,16 +47,28 @@ const AddVideogame = () => {
       id: 3,
       placeholder: 'Price per day',
       type: 'number',
-      value: price,
-      action: setPrice,
+      value: pricePerDay,
+      action: setPricePerDay,
       min: 0,
     },
   ];
 
-  const handleSubmit = async (e) => {
+  useUpdateEffect(() => {
+    if (videogame) {
+      navigate(`/videogames/${videogame.id}`);
+    }
+  }, [videogame]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await createVideogame(name, url, description, price, jwt);
-    navigate('/');
+    dispatch(
+      addVideogame({
+        name,
+        photoURL,
+        description,
+        pricePerDay,
+      }),
+    );
   };
 
   return (
@@ -58,11 +78,13 @@ const AddVideogame = () => {
           <h3 className="subtitle text-center">ADD A VIDEOGAME</h3>
           <hr className="green-line" />
           <p>Add a videogame available for rent</p>
-          <form onSubmit={handleSubmit}>
-            <div className="login-inputs">
-              {inputs.map((input) => (
+          <form
+            className="row row-cols-1 row-cols-md-auto justify-content-center gy-2"
+            onSubmit={handleSubmit}
+          >
+            {inputs.map((input) => (
+              <div key={input.id} className="col d-flex justify-content-center">
                 <input
-                  key={input.id}
                   value={input.value}
                   type={input.type}
                   min={input.min}
@@ -71,14 +93,25 @@ const AddVideogame = () => {
                   className="input"
                   required
                 />
-              ))}
-            </div>
-            <div className="button-container">
+              </div>
+            ))}
+            <div className="col d-flex justify-content-center">
               <button type="submit" className="login-submit-button">
-                Save
+                {addVideogameLoading ? <div className="spinner-border" /> : 'Save'}
               </button>
             </div>
           </form>
+          {addVideogameError && (
+            <div className="text-center mt-2">
+              <small>
+                *
+                {' '}
+                {addVideogameError}
+                {' '}
+                *
+              </small>
+            </div>
+          )}
         </div>
       </div>
     </div>

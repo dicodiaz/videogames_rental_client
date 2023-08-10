@@ -3,14 +3,21 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'usehooks-ts';
 import Carousel from '../components/Carousel';
-import Spinner from '../components/spinner';
+import Spinner from '../components/Spinner';
 import { getVideogames } from '../redux/slices/videogamesSlice';
-import { selectVideogames, selectVideogamesError } from '../redux/store';
+import {
+  selectDeleteError,
+  selectDeleteMessage,
+  selectVideogames,
+  selectVideogamesError,
+} from '../redux/store';
 
-const Home = ({ deleteButton, message }) => {
+const Home = ({ deleteButton }) => {
   const dispatch = useDispatch();
   const videogames = useSelector(selectVideogames);
   const error = useSelector(selectVideogamesError);
+  const deleteMessage = useSelector(selectDeleteMessage);
+  const deleteError = useSelector(selectDeleteError);
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const isLargeDesktop = useMediaQuery('(min-width: 1200px)');
   const [page, setPage] = useState(0);
@@ -59,14 +66,27 @@ const Home = ({ deleteButton, message }) => {
         disabledRight={disabledRight}
         deleteButton={deleteButton}
       />
-      {message && (
-      <small className="mt-5 fw-bold">
-        *
-        {' '}
-        {message}
-        {' '}
-        *
-      </small>
+      {deleteButton && (
+        <>
+          {deleteMessage && (
+          <small className="mt-5 fw-bold">
+            *
+            {' '}
+            {deleteMessage}
+            {' '}
+            *
+          </small>
+          )}
+          {deleteError && (
+          <small className="mt-5 fw-bold">
+            *
+            {' '}
+            {deleteError}
+            {' '}
+            *
+          </small>
+          )}
+        </>
       )}
     </div>
   );
@@ -74,12 +94,10 @@ const Home = ({ deleteButton, message }) => {
 
 Home.propTypes = {
   deleteButton: PropTypes.bool,
-  message: PropTypes.string,
 };
 
 Home.defaultProps = {
   deleteButton: false,
-  message: '',
 };
 
 export default Home;

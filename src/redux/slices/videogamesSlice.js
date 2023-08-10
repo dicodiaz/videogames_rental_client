@@ -2,115 +2,137 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import BASE_URL from '../constants';
 
-export const getDetails = createAsyncThunk(
-  'videogames/getDetails',
-  async (id, { getState, rejectWithValue }) => {
+export const getVideogames = createAsyncThunk(
+  'videogame/getVideogames',
+  async (_, { getState, rejectWithValue }) => {
     const state = getState();
-    const response = await axios
-      .get(`${BASE_URL}/videogames/${id}`, {
-        headers: {
-          Accept: 'application/json',
-          Authorization: state.user.jwt,
-        },
-      })
-      .catch((error) => error);
+    const url = `${BASE_URL}/videogames`;
+    const config = {
+      headers: { Accept: 'application/json', Authorization: state.userReducer.jwt },
+    };
+    const response = await axios.get(url, config).catch((error) => error);
 
     if (response.status === 200) {
       return response.data;
     }
 
-    return rejectWithValue(response.message);
+    return rejectWithValue(response.response.data.error);
   },
 );
 
-export const createVideogame = async (name, url, description, price, jwt) => {
-  const apiUrl = `${BASE_URL}/videogames`;
-  const body = {
-    name,
-    photo: url,
-    description,
-    price_per_day: price,
-  };
-  const headers = {
-    headers: {
-      Authorization: jwt,
-    },
-  };
-  const res = await axios.post(apiUrl, body, headers);
-  return res;
-};
-
-export const deleteVideogame = createAsyncThunk(
-  'videogames/delete',
+export const getVideogame = createAsyncThunk(
+  'videogame/getVideogame',
   async (id, { getState, rejectWithValue }) => {
     const state = getState();
-    const response = await axios
-      .delete(`${BASE_URL}/videogames/${id}`, {
-        headers: {
-          Accept: 'application/json',
-          Authorization: state.user.jwt,
-        },
-      })
-      .catch((error) => error);
+    const url = `${BASE_URL}/videogames/${id}`;
+    const config = {
+      headers: { Accept: 'application/json', Authorization: state.userReducer.jwt },
+    };
+    const response = await axios.get(url, config).catch((error) => error);
 
     if (response.status === 200) {
-      return [response.data, id];
+      return response.data;
     }
 
-    return rejectWithValue(response.message);
+    return rejectWithValue(response.response.data.error);
   },
 );
 
-export const getVideogames = createAsyncThunk(
-  'videogames/getVideogames',
-  async (_, { getState, rejectWithValue }) => {
+export const addVideogame = createAsyncThunk(
+  'videogame/addVideogame',
+  async ({
+    name, photoURL, description, pricePerDay,
+  }, { getState, rejectWithValue }) => {
     const state = getState();
     const url = `${BASE_URL}/videogames`;
-    const headers = { Accept: 'application/json', Authorization: state.user.jwt };
-    const { status, data, message } = await axios.get(url, { headers }).catch((error) => error);
+    const data = {
+      videogame: {
+        name,
+        photo: photoURL,
+        description,
+        price_per_day: pricePerDay,
+      },
+    };
+    const config = {
+      headers: { Accept: 'application/json', Authorization: state.userReducer.jwt },
+    };
+    const response = await axios.post(url, data, config).catch((error) => error);
 
-    if (status === 200) {
-      return data;
+    if (response.status === 201) {
+      return response.data;
     }
 
-    return rejectWithValue(message);
+    return rejectWithValue(response.response.data.error);
   },
 );
 
-const videogamesSlice = createSlice({
-  name: 'videogames',
+export const deleteVideogame = createAsyncThunk(
+  'videogame/deleteVideogame',
+  async (id, { getState, rejectWithValue }) => {
+    const state = getState();
+    const url = `${BASE_URL}/videogames/${id}`;
+    const config = {
+      headers: { Accept: 'application/json', Authorization: state.userReducer.jwt },
+    };
+    const response = await axios.delete(url, config).catch((error) => error);
+
+    if (response.status === 200) {
+      return { message: response.data.message, id };
+    }
+
+    return rejectWithValue(response.response.data.error);
+  },
+);
+
+const videogameSlice = createSlice({
+  name: 'videogame',
   initialState: {},
   reducers: {
-    clearDetails: (state) => {
-      state.details = null;
+    clearVideogame: (state) => {
+      state.videogame = null;
     },
   },
   extraReducers: {
-    [getDetails.fulfilled]: (state, { payload }) => {
-      state.details = payload;
-      state.detailsError = null;
-    },
-    [getDetails.rejected]: (state, action) => {
-      state.detailsError = action.payload;
-    },
-    [deleteVideogame.fulfilled]: (state, { payload }) => {
-      const [data, id] = payload;
-      state.all = state.all.filter((videogame) => videogame.id !== id);
-      state.message = data.message;
-      state.error = null;
-    },
-    [deleteVideogame.rejected]: (state, { payload }) => {
-      state.deleteError = payload;
-    },
     [getVideogames.fulfilled]: (state, { payload }) => {
-      state.all = payload;
-      state.allError = null;
+      state.videogames = payload;
+      state.videogamesError = null;
     },
     [getVideogames.rejected]: (state, { payload }) => {
-      state.allError = payload;
+      state.videogamesError = payload;
+    },
+    [getVideogame.fulfilled]: (state, { payload }) => {
+      state.videogame = payload;
+      state.videogameError = null;
+    },
+    [getVideogame.rejected]: (state, { payload }) => {
+      state.videogameError = payload;
+    },
+    [addVideogame.fulfilled]: (state, { payload }) => {
+      state.videogame = payload;
+      state.addVideogameError = null;
+      state.addVideogameLoading = false;
+    },
+    [addVideogame.pending]: (state) => {
+      state.addVideogameLoading = true;
+    },
+    [addVideogame.rejected]: (state, { payload }) => {
+      state.addVideogameError = payload;
+      state.addVideogameLoading = false;
+    },
+    [deleteVideogame.fulfilled]: (state, { payload }) => {
+      const { message, id } = payload;
+      state.videogames = state.videogames.filter((videogame) => videogame.attributes.id !== id);
+      state.deleteVideogameMessage = message;
+      state.deleteVideogameError = null;
+      getVideogames();
+    },
+    [deleteVideogame.rejected]: (state, { payload }) => {
+      state.deleteVideogameError = payload;
+      state.deleteVideogameMessage = null;
     },
   },
 });
 
-export const { clearDetails } = videogamesSlice.actions;
-export default videogamesSlice.reducer;
+export const { clearVideogame } = videogameSlice.actions;
+
+export default videogameSlice.reducer;
