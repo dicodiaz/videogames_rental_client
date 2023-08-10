@@ -124,7 +124,6 @@ const videogameSlice = createSlice({
       state.videogames = state.videogames.filter((videogame) => videogame.attributes.id !== id);
       state.deleteVideogameMessage = message;
       state.deleteVideogameError = null;
-      getVideogames();
     },
     [deleteVideogame.rejected]: (state, { payload }) => {
       state.deleteVideogameError = payload;
