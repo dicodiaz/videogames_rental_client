@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reservationReducer from './slices/reservationsSlice';
+import reservationReducer from './slices/reservationSlice';
 import userReducer from './slices/userSlice';
 import videogameReducer from './slices/videogameSlice';
 
@@ -30,6 +30,8 @@ export const selectAddVideogameError = (state) => state.videogameReducer.addVide
 export const selectDeleteMessage = (state) => state.videogameReducer.deleteVideogameMessage;
 export const selectDeleteError = (state) => state.videogameReducer.deleteVideogameError;
 export const selectReservations = (state) => state.reservationReducer.reservations;
-export const selectReservationsError = (state) => state.reservationReducer.error;
+export const selectReservationsError = (state) => state.reservationReducer.reservationsError;
+export const selectReserveLoading = (state) => state.reservationReducer.addReservationLoading;
+export const selectReserveError = (state) => state.reservationReducer.addReservationError;
 
 export default setupStore;

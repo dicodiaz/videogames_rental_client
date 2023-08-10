@@ -23,8 +23,11 @@ const Reservation = ({ data }) => {
         <h3 className="h6 fw-bolder text-uppercase mb-4">{name}</h3>
       </Link>
       <div className="text-muted small">
-        <ReservationDetails label="Starting date" value={formatDate(createdAt)} />
-        <ReservationDetails label="Finishing date" value={formatDate(createdAt, days)} />
+        <ReservationDetails label="Starting date" value={formatDate({ dateStr: createdAt })} />
+        <ReservationDetails
+          label="Finishing date"
+          value={formatDate({ dateStr: createdAt, daysLater: days })}
+        />
         <ReservationDetails label="Days" value={days} />
         <ReservationDetails label="Total price" value={formatToCurrency(totalPrice)} />
         <p className="d-webkit-box clamp-3">{description}</p>

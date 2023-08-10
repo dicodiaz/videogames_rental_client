@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'usehooks-ts';
 import Carousel from '../components/Carousel';
-import Spinner from '../components/spinner';
-import { getReservations } from '../redux/slices/reservationsSlice';
+import Spinner from '../components/Spinner';
+import { getReservations } from '../redux/slices/reservationSlice';
 import { selectReservations, selectReservationsError } from '../redux/store';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
   const reservations = useSelector(selectReservations);
-  const error = useSelector(selectReservationsError);
+  const reservationsError = useSelector(selectReservationsError);
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const isLargeDesktop = useMediaQuery('(min-width: 1200px)');
   const [page, setPage] = useState(0);
@@ -26,8 +26,8 @@ const MyReservations = () => {
     dispatch(getReservations());
   }, [dispatch]);
 
-  if (error) {
-    return <h1 className="text-center">{error}</h1>;
+  if (reservationsError) {
+    return <h1 className="text-center pt-5">{reservationsError}</h1>;
   }
 
   if (!reservations) {
@@ -39,7 +39,7 @@ const MyReservations = () => {
   }
 
   if (!reservations.length) {
-    return <h1 className="text-center">There are no reservations in your name</h1>;
+    return <h1 className="text-center pt-5">There are no reservations in your name</h1>;
   }
 
   const slicedItems = reservations.slice(page, page + itemsPerPage);
