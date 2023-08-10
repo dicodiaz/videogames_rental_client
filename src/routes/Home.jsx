@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'usehooks-ts';
 import Carousel from '../components/Carousel';
 import Spinner from '../components/Spinner';
-import { getVideogames } from '../redux/slices/videogamesSlice';
+import { getVideogames } from '../redux/slices/videogameSlice';
 import {
   selectDeleteError,
   selectDeleteMessage,

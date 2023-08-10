@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import Spinner from '../components/spinner';
+import Spinner from '../components/Spinner';
 import { fetchReservation } from '../redux/slices/reservationsSlice';
-import { getVideogames } from '../redux/slices/videogamesSlice';
+import { getVideogames } from '../redux/slices/videogameSlice';
 import { selectJWT, selectReservationsError, selectVideogames } from '../redux/store';
 import '../styles/Login.scss';
 import '../styles/Reserve.scss';

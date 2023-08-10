@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useUpdateEffect } from 'usehooks-ts';
-import { addVideogame } from '../redux/slices/videogamesSlice';
+import { addVideogame } from '../redux/slices/videogameSlice';
 import {
   selectAddVideogameError,
   selectAddVideogameLoading,

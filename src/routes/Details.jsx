@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import colorWheel from '../assets/color_wheel.png';
 import Spinner from '../components/Spinner';
-import { getVideogame } from '../redux/slices/videogamesSlice';
+import { getVideogame } from '../redux/slices/videogameSlice';
 import { selectVideogame, selectVideogameError } from '../redux/store';
 import '../styles/details.scss';
 
@@ -41,9 +41,7 @@ const Details = () => {
   }
 
   const { attributes } = videogame;
-  const {
-    name, photo, description, price_per_day: pricePerDay,
-  } = attributes;
+  const { name, photo, description, price_per_day: pricePerDay } = attributes;
 
   return (
     <section className="details-section">
@@ -57,12 +55,7 @@ const Details = () => {
             {pricingTable.map((item) => (
               <tr key={item.text}>
                 <td>
-                  {item.text}
-                  {' '}
-                  <span>
-                    $
-                    {pricePerDay * item.multiplier}
-                  </span>
+                  {item.text} <span>${pricePerDay * item.multiplier}</span>
                 </td>
               </tr>
             ))}
@@ -70,9 +63,7 @@ const Details = () => {
         </table>
 
         <Link to="/" className="discover-button">
-          Discover more videogames
-          {' '}
-          <span>&gt;</span>
+          Discover more videogames <span>&gt;</span>
         </Link>
 
         <div className="image-container">

@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ProtectedRoute from './components/ProtectedRoute';
 import { setUserDataFromLocalStorage } from './redux/slices/userSlice';
-import { clearVideogame } from './redux/slices/videogamesSlice';
+import { clearVideogame } from './redux/slices/videogameSlice';
 import { selectUser } from './redux/store';
 import AddVideogame from './routes/AddVideogame';
 import DeleteVideogame from './routes/DeleteVideogame';

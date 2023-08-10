@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import reservationReducer from './slices/reservationsSlice';
 import userReducer from './slices/userSlice';
-import videogameReducer from './slices/videogamesSlice';
+import videogameReducer from './slices/videogameSlice';
 
 const reducer = {
   userReducer,

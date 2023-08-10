@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteVideogame } from '../redux/slices/videogamesSlice';
+import { deleteVideogame } from '../redux/slices/videogameSlice';
 import '../styles/carousel-item.scss';
 
 const Videogame = ({ data, deleteButton }) => {
