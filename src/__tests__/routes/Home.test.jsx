@@ -6,8 +6,8 @@ describe('Home', () => {
   it('should render as expected', () => {
     const { container } = renderWithProviders(<Home />, {
       preloadedState: {
-        videogames: {
-          all: mockVideogames,
+        videogameReducer: {
+          videogames: mockVideogames,
         },
       },
     });

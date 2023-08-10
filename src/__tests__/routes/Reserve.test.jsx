@@ -18,8 +18,8 @@ describe('Reserve', () => {
 
     const { container } = renderWithProviders(<Reserve />, {
       preloadedState: {
-        videogames: {
-          all: mockVideogames,
+        videogameReducer: {
+          videogames: mockVideogames,
         },
       },
     });

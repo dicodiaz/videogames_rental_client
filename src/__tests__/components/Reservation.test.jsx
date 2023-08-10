@@ -4,7 +4,7 @@ import renderWithProviders from '../test-utils';
 
 describe('Reservation', () => {
   it('should render as expected', () => {
-    const { container } = renderWithProviders(<Reservation data={mockReservation} />);
+    const { container } = renderWithProviders(<Reservation data={mockReservation.attributes} />);
     expect(container).toMatchSnapshot();
   });
 });

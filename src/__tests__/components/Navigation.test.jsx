@@ -12,7 +12,7 @@ describe('Navigation', () => {
   it('should render as expected when there is a logged in user', () => {
     const { container } = renderWithProviders(<Navigation />, {
       preloadedState: {
-        user: {
+        userReducer: {
           user: {
             name: 'user name',
           },
@@ -25,7 +25,7 @@ describe('Navigation', () => {
   it('should render as expected when there is a logged in admin', () => {
     const { container } = renderWithProviders(<Navigation />, {
       preloadedState: {
-        user: {
+        userReducer: {
           user: {
             name: 'admin name',
             admin: true,
@@ -57,7 +57,7 @@ describe('Navigation', () => {
   it('should remove user from the store when clicking the logout button', async () => {
     const { store, getByRole } = renderWithProviders(<Navigation />, {
       preloadedState: {
-        user: {
+        userReducer: {
           user: {
             name: 'user name',
           },
@@ -66,8 +66,8 @@ describe('Navigation', () => {
     });
 
     axios.delete.mockResolvedValue({ status: 200, data: {} });
-    expect(store.getState().user.user).toBeTruthy();
+    expect(store.getState().userReducer.user).toBeTruthy();
     await userEvent.click(getByRole('button', { name: 'Log out' }));
-    expect(store.getState().user.user).toBeFalsy();
+    expect(store.getState().userReducer.user).toBeFalsy();
   });
 });

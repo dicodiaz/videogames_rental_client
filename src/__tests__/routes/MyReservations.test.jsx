@@ -6,7 +6,7 @@ describe('MyReservations', () => {
   it('should render as expected', () => {
     const { container } = renderWithProviders(<MyReservations />, {
       preloadedState: {
-        reservations: {
+        reservationReducer: {
           reservations: mockReservations,
         },
       },

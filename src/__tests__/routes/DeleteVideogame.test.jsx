@@ -6,8 +6,8 @@ describe('DeleteVideogame', () => {
   it('should render as expected', () => {
     const { container } = renderWithProviders(<DeleteVideogame />, {
       preloadedState: {
-        videogames: {
-          all: mockVideogames,
+        videogameReducer: {
+          videogames: mockVideogames,
         },
       },
     });
