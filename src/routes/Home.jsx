@@ -35,7 +35,7 @@ const Home = ({ deleteButton }) => {
   }, [dispatch]);
 
   if (error) {
-    return <h1 className="text-center">{error}</h1>;
+    return <h1 className="text-center pt-5">{error}</h1>;
   }
 
   if (!videogames) {
@@ -47,7 +47,7 @@ const Home = ({ deleteButton }) => {
   }
 
   if (!videogames.length) {
-    return <h1 className="text-center">There are no videogames available</h1>;
+    return <h1 className="text-center pt-5">There are no videogames available</h1>;
   }
 
   const slicedItems = videogames.slice(page, page + itemsPerPage);
