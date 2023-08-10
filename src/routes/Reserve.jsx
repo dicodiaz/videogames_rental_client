@@ -6,8 +6,8 @@ import Spinner from '../components/Spinner';
 import { addReservation } from '../redux/slices/reservationSlice';
 import { getVideogames } from '../redux/slices/videogameSlice';
 import { selectReserveError, selectReserveLoading, selectVideogames } from '../redux/store';
-import '../styles/Login.scss';
-import '../styles/Reserve.scss';
+import '../styles/login.scss';
+import '../styles/reserve.scss';
 import formatDate from '../utils/formatDate';
 
 const Reserve = () => {
