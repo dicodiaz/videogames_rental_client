@@ -41,7 +41,9 @@ const Details = () => {
   }
 
   const { attributes } = videogame;
-  const { name, photo, description, price_per_day: pricePerDay } = attributes;
+  const {
+    name, photo, description, price_per_day: pricePerDay,
+  } = attributes;
 
   return (
     <section className="details-section">
@@ -55,7 +57,12 @@ const Details = () => {
             {pricingTable.map((item) => (
               <tr key={item.text}>
                 <td>
-                  {item.text} <span>${pricePerDay * item.multiplier}</span>
+                  {item.text}
+                  {' '}
+                  <span>
+                    $
+                    {pricePerDay * item.multiplier}
+                  </span>
                 </td>
               </tr>
             ))}
@@ -63,7 +70,9 @@ const Details = () => {
         </table>
 
         <Link to="/" className="discover-button">
-          Discover more videogames <span>&gt;</span>
+          Discover more videogames
+          {' '}
+          <span>&gt;</span>
         </Link>
 
         <div className="image-container">
