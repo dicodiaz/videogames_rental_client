@@ -1,24 +1,18 @@
-<div align="center" id='readme-top'>
-  <img src="./src//assets/logo.webp" alt="videogames logo" width="220" height="auto">
-  <br/>
-</div>
-<div align="center">
-  <h1><b>Videogames Front end</b></h1>
-</div>
+<a name="readme-top"></a>
 
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+  - [🗝️ Key Features](#key-features)
+  - [🛠️ Built With](#built-with)
+- [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#test)
+  - [Run tests](#run-tests)
+  - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -26,69 +20,43 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
+# 📖 Videogames Rental Client <a name="about-project"></a>
 
-# 🎮 mc_videgames_front <a id="about-project"></a>
+**Videogames Rental Client** stands as a responsive Single Page Application (SPA) that empowers users to embark on a journey through the realm of classic vintage videogames for rent. Seamlessly interfacing with the [Videogames Rental Server API](https://github.com/dicodiaz/videogames_rental_server), it offers a user-friendly gateway into the world of gaming nostalgia.
 
-**mc_videgames_front** is the front-end implementation of the final capstone group from Microverse. It is an application that let the user rent a videogame. It also let the admins create new videogames or delete them.
+## 🗝️ Key Features <a name="key-features"></a>
 
-**We are a five people team**
+- Allows users login/sign up leveraging on the local storage API
+- Allows the user to see a list of all available videogames
+- Allows the user to see details of any available videogame
+- Allows the user to reserve any available videogame
+- Allows admins to create/delete new videogames
+- Implements global state management with `@reduxjs/toolkit`
+- Implements routing with `react-router-dom`
+- Uses `axios` for API data fetching
+- Includes `vitest` and `@testing-library`'s unit tests
 
-## 🛠 Built With <a id="built-with"></a>
-
-- `React`
-- `React-router-dom`
-- `Redux`
-
-### Tech Stack <a id="tech-stack"></a>
+## 🛠️ Built With <a name="built-with"></a>
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://es.react.dev/">React</a></li>
-    <li><a href="https://redux.js.org/">Redux</a></li>
-    <li><a href="https://reactrouter.com/en/main">React-router-dom</a></li>
+    <li><a href="https://react.dev">React</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://vitejs.dev/">Vite</a></li>
   </ul>
 </details>
 
-<!-- Features -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Key Features <a id="key-features"></a>
+## 🚀 Live Demo <a name="live-demo"></a>
 
-- Let the user reserve a videogame for rent
-- The admins can create a new videogame or delete it
-- Authentication managed by the backend
+- [https://videogames-rental.dicodiaz.com.co/](https://videogames-rental.dicodiaz.com.co/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a id="live-demo"></a>
-
-- [Live Demo Link](https://videogames-capstone.onrender.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- KANBAN BOARD -->
-
-## ⚙️ Kanban Board <a id="kanban-board"></a>
-
-**We are a five people team**
-
-- Kanban board (initial state)
-  <img src="./kanban.png">
-
-- [Kanban board Link](https://github.com/users/DavidEspinoG/projects/5/views/1)
-
-<!-- LINK TO FRONT-END -->
-
-## 🔗 Link to backend <a id="link-back"></a>
-
-- [Backend link](https://github.com/sanieni6/mc_videogames_back)
-
-<!-- GETTING STARTED -->
-
-## 💻 Getting Started <a id="getting-started"></a>
+## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
 
@@ -96,55 +64,51 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- Node
-- A web browser
+- Install [Node.js](https://nodejs.org/en)
 
 ### Setup
 
 Clone this repository to your desired folder:
 
 ```sh
-  git clone git@github.com:DavidEspinoG/mc_videogames_front.git
-  cd mc_videgames_front
+  cd my-folder
+  git clone git@github.com:dicodiaz/videogames_rental_client.git
 ```
 
 ### Install
 
 Install this project with:
 
-- `npm i `
+```sh
+  cd videogames_rental_client
+  npm install
+```
 
 ### Usage
 
-To start the server, execute the following command:
+To run the project, execute the following commands:
 
-`npm run dev`
+```sh
+  npm run dev
+```
 
-### Run test
+### Run tests
 
-<div id="test">
-  You can run the test with the following command
-</div>
+To run tests, run the following command:
 
-`npm run test`
+```sh
+  npm test
+```
+
+### Deployment
+
+There's a CD pipeline set up to track the `develop` branch.
+
+Please open a PR from your feature branch to `develop` in order to contribute.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
-
-## 👥 Authors <a id="authors"></a>
-
-👤 **Alejandra Keber Maggi**
-
-- GitHub: [@AlejandraKeber](https://github.com/AlejandraKeber)
-- Twitter: [@KeberAlejandra](https://twitter.com/KeberAlejandra)
-- LinkedIn: [alejandra-keber](https://www.linkedin.com/in/alejandra-keber)
-
-👤 **David Espino**
-
-- GitHub: [@DavidEspinoG](https://github.com/DavidEspinoG)
-- Twitter: [@DavidEspinoG](https://twitter.com/DavidEspinoG)
-- LinkedIn: [davidespinog](https://linkedin.com/in/davidespinog)
+## 👥 Authors <a name="authors"></a>
 
 👤 **Dico Diaz Dussan**
 
@@ -152,11 +116,13 @@ To start the server, execute the following command:
 - LinkedIn: [Dico Diaz Dussan](https://www.linkedin.com/in/dico-diaz-dussan/)
 - Portfolio: [portfolio.dicodiaz.com.co](https://portfolio.dicodiaz.com.co)
 
-👤 **Luis Sanchez**
+👤 **David Espino**
 
-- Github: [GitHub](https://github.com/sanieni6/)
-- Twitter: [Twitter](https://twitter.com/its_luis_sz23)
-- Linkedin: [LinkedIn](https://www.linkedin.com/in/luissanchezz3/)
+- GitHub: [@DavidEspinoG](https://github.com/DavidEspinoG)
+- Twitter: [@DavidEspinoG](https://twitter.com/DavidEspinoG)
+- LinkedIn: [davidespinog](https://linkedin.com/in/davidespinog)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 👤 **Nicolas Olaya**
 
@@ -164,50 +130,47 @@ To start the server, execute the following command:
 - Twitter: [@nicolasolaya22](https://twitter.com/nicolasolaya22)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/nicolas-olaya/)
 
+👤 **Alejandra Keber Maggi**
+
+- GitHub: [@AlejandraKeber](https://github.com/AlejandraKeber)
+- Twitter: [@KeberAlejandra](https://twitter.com/KeberAlejandra)
+- LinkedIn: [alejandra-keber](https://www.linkedin.com/in/alejandra-keber)
+
+👤 **Luis Sanchez**
+
+- Github: [GitHub](https://github.com/sanieni6/)
+- Twitter: [Twitter](https://twitter.com/its_luis_sz23)
+- Linkedin: [LinkedIn](https://www.linkedin.com/in/luissanchezz3/)
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] Increase unit test coverage
+- [ ] Add integration tests with Cypress
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a id="future-features"></a>
-
-- [ ] **[Add unit tests]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing <a id="contributing"></a>
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/DavidEspinoG/mc_videogames_front/issues).
+Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
+## ⭐️ Show your support <a name="support"></a>
 
-## ⭐️ Show your support <a id="support"></a>
-
-If you like this project please give it a star ⭐️
+Give a ⭐️ if you like this project!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-## 🙏 Acknowledgments <a id="acknowledgements"></a>
-
-I would like to thank
-
-- [Microverse](https://www.microverse.org/) for the opportunity.
-- Code Reviewers
-- Coding Partners
-- Special thank to [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for providing the design guidelines.
+- Original design idea by [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign).
+- A huge thanks to [Microverse](https://www.microverse.org) for their constant support.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
-
-## 📝 License <a id="license"></a>
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./MIT.md) licensed.
 
